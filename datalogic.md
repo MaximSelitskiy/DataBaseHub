@@ -57,8 +57,8 @@
 ## 7. Сотрудники студии (`StudioMember`)
 | Имя столбца | Тип данных | Ограничения | Описание |
 | :--- | :--- | :--- | :--- |
-| `stm_usr_id` | INT | PRIMARY KEY, FOREIGN KEY (`User.usr_id`) | Пользователь (разработчик) |
-| `stm_std_id` | INT | PRIMARY KEY, FOREIGN KEY (`DeveloperStudio.std_id`) | Студия |
+| `stm_usr_id` | INT | COMPOSITE PRIMARY KEY (1/2), FOREIGN KEY (`User.usr_id`) | Пользователь (разработчик) |
+| `stm_std_id` | INT | COMPOSITE PRIMARY KEY (2/2), FOREIGN KEY (`DeveloperStudio.std_id`) | Студия |
 | `stm_role` | VARCHAR(50) | NOT NULL | Должность (LEAD, DEVELOPER, QA) |
 | `stm_joined_at` | DATETIME | NOT NULL | Дата присоединения |
 
@@ -80,8 +80,8 @@
 ## 10. Жанры игр (`GameGenre`)
 | Имя столбца | Тип данных | Ограничения | Описание |
 | :--- | :--- | :--- | :--- |
-| `gg_game_id` | INT | PRIMARY KEY, FOREIGN KEY (`Game.game_id`) | Идентификатор игры |
-| `gg_gnr_id` | INT | PRIMARY KEY, FOREIGN KEY (`Genre.gnr_id`) | Идентификатор жанра |
+| `gg_game_id` | INT | COMPOSITE PRIMARY KEY (1/2), FOREIGN KEY (`Game.game_id`) | Идентификатор игры |
+| `gg_gnr_id` | INT | COMPOSITE PRIMARY KEY (2/2), FOREIGN KEY (`Genre.gnr_id`) | Идентификатор жанра |
 
 ## 11. Дополнения к играм (`GameDLC`)
 | Имя столбца | Тип данных | Ограничения | Описание |
@@ -125,8 +125,8 @@
 ## 15. Полученные достижения пользователей (`UserAchievement`)
 | Имя столбца | Тип данных | Ограничения | Описание |
 | :--- | :--- | :--- | :--- |
-| `uach_usr_id` | INT | PRIMARY KEY, FOREIGN KEY (`User.usr_id`) | Пользователь |
-| `uach_ach_id` | INT | PRIMARY KEY, FOREIGN KEY (`Achievement.ach_id`) | Достижение |
+| `uach_usr_id` | INT | COMPOSITE PRIMARY KEY (1/2), FOREIGN KEY (`User.usr_id`) | Пользователь |
+| `uach_ach_id` | INT | COMPOSITE PRIMARY KEY (2/2), FOREIGN KEY (`Achievement.ach_id`) | Достижение |
 | `uach_unlock_date` | DATETIME | NOT NULL, DEFAULT CURRENT_TIMESTAMP | Время получения |
 
 ## 16. Игровые сессии / Аналитика (`PlaySession`)
